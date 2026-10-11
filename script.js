@@ -157,7 +157,7 @@ let gameSettings = {
 };
 
 const isDesktopApp = Boolean(window.desktopAPI && window.desktopAPI.isDesktop);
-const CURRENT_VERSION = "1.0.0";
+const CURRENT_VERSION = "1.0.1";
 const GITHUB_REPO = "BO1MA/TBJT";
 const statusIndicator = document.getElementById("version-status-indicator");
 const currentVersionDisplay = document.getElementById("current-version-display");

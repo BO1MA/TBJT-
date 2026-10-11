@@ -22,6 +22,8 @@ function createWindow() {
     fullscreen: true,
     fullscreenable: true,
     simpleFullscreen: false,
+    frame: false,
+    useContentSize: true,
     autoHideMenuBar: true,
     backgroundColor: "#020a12",
     webPreferences: {
