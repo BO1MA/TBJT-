@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Boy With The Jagged Tongue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game-container">
+    <video id="fmv-player" playsinline preload="auto" aria-label="Story video">
+      <source src="" type="video/mp4">
+    </video>
+
+    <!-- Pause button -->
+    <button id="btn-pause-trigger" class="hud-pause-btn" type="button" aria-label="Pause Game">
+      <span class="pause-icon">❚❚</span>
+      <span class="pause-text">PAUSE</span>
+    </button>
+
+    <!-- Loading screen -->
+    <section id="loading-screen" class="overlay-layer active" aria-label="Loading">
+      <div class="gta-spinner-wrapper">
+        <div class="gta-spinner" aria-hidden="true"></div>
+        <span class="loading-label">LOADING</span>
+      </div>
+    </section>
+
+    <!-- Main menu -->
+    <section id="main-menu" class="overlay-layer" aria-label="Main menu">
+      <button id="btn-quit" class="hud-top-right-btn" type="button" title="Exit Game">
+        <span class="quit-icon">✕</span>
+        <span class="quit-text">TERMINATE // EXIT</span>
+      </button>
+      <div id="btn-version-log" class="hud-bottom-right-badge" role="button" tabindex="0" aria-label="Open release archive">
+        <span class="version-pulse"></span>
+        <span class="version-label">BUILD // v1.0.0</span>
+      </div>
+      <div class="menu-container">
+        <nav class="menu-nav" aria-label="Main menu actions">
+          <button id="btn-continue" class="menu-btn continue-btn" type="button" hidden>CONTINUE</button>
+          <button id="btn-new-game" class="menu-btn" type="button">NEW GAME</button>
+          <button id="btn-settings" class="menu-btn" type="button">SETTINGS</button>
+          <button id="btn-credits" class="menu-btn" type="button">CREDITS</button>
+        </nav>
+      </div>
+    </section>
+
+    <section id="web-shutdown-screen" class="overlay-layer" aria-label="Session Terminated">
+      <div class="settings-frame shutdown-frame">
+        <span class="hud-tag">STATUS // SYSTEM DISCONNECTED</span>
+        <h2 class="settings-title shutdown-title">SESSION TERMINATED</h2>
+        <p class="shutdown-message">
+          All local states and psych-matrices saved.<br>
+          You can safely close this browser tab now.
+        </p>
+        <button id="btn-reboot-session" class="menu-btn" type="button">REBOOT SESSION</button>
+      </div>
+    </section>
+
+    <!-- Decision screen HUD -->
+    <section id="dbh-overlay" class="overlay-layer" aria-labelledby="hud-prompt" aria-live="polite">
+      <div class="hud-frame">
+        <div class="hud-header">
+          <span class="hud-tag">DECISION PENDING //</span>
+          <h2 id="hud-prompt">SELECT ACTION</h2>
+        </div>
+        <div class="timer-track" aria-hidden="true">
+          <div id="timer-bar" class="timer-fill"></div>
+        </div>
+        <div id="nodes-container" class="nodes-grid"></div>
+      </div>
+    </section>
+
+    <!-- Pause menu overlay -->
+    <section id="pause-menu" class="overlay-layer" aria-label="Pause menu">
+      <div class="pause-frame">
+        <div class="pause-header">
+          <span class="hud-tag">SYSTEM // SUSPENDED</span>
+          <h2 class="pause-title">GAME PAUSED</h2>
+        </div>
+        <nav class="pause-nav" aria-label="Pause menu actions">
+          <button id="btn-pause-resume" class="menu-btn" type="button">RESUME</button>
+          <button id="btn-pause-settings" class="menu-btn" type="button">SETTINGS</button>
+          <button id="btn-pause-quit" class="menu-btn quit-btn" type="button">QUIT TO TITLE</button>
+        </nav>
+      </div>
+    </section>
+
+    <section id="settings-menu" class="overlay-layer" aria-label="Game Settings">
+      <div class="settings-frame">
+        <div class="settings-header">
+          <span class="hud-tag">CONFIGURATION // SYSTEM</span>
+          <h2 class="settings-title">SETTINGS</h2>
+        </div>
+
+        <div class="settings-body">
+          <div class="setting-item">
+            <div class="setting-info">
+              <label for="volume-slider" class="setting-label">AUDIO LEVEL</label>
+              <span id="volume-val-display" class="setting-value">100%</span>
+            </div>
+            <input id="volume-slider" class="dbh-slider" type="range" min="0" max="100" value="100">
+          </div>
+
+          <div class="setting-item row-layout">
+            <span class="setting-label">MUTE SOUND</span>
+            <label class="dbh-switch">
+              <input id="mute-toggle" type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="setting-item row-layout" id="display-mode-container">
+            <div class="setting-desc-box">
+              <span class="setting-label">DISPLAY MODE</span>
+              <span id="platform-tag" class="setting-subtext">DETECTING PLATFORM...</span>
+            </div>
+            <div id="desktop-display-controls" class="quality-selector">
+              <button class="display-btn active" data-mode="fullscreen" type="button">FULLSCREEN</button>
+              <button class="display-btn" data-mode="borderless" type="button">BORDERLESS</button>
+              <button class="display-btn" data-mode="windowed" type="button">WINDOWED</button>
+            </div>
+            <div id="web-display-controls">
+              <button id="btn-fullscreen-toggle" class="menu-btn setting-btn" type="button">TOGGLE FULLSCREEN</button>
+            </div>
+          </div>
+
+          <div class="setting-item row-layout">
+            <div class="setting-desc-box">
+              <span class="setting-label">GRAPHICS PROFILE</span>
+              <span class="setting-subtext">VISUAL BLUR &amp; RENDERING</span>
+            </div>
+            <div class="quality-selector">
+              <button id="btn-gfx-cinematic" class="quality-btn active" data-perf="cinematic" type="button">CINEMATIC</button>
+              <button id="btn-gfx-perf" class="quality-btn" data-perf="performance" type="button">PERFORMANCE</button>
+            </div>
+          </div>
+
+          <div class="setting-item row-layout">
+            <div class="setting-desc-box">
+              <span class="setting-label">AUDIO PROFILE</span>
+              <span class="setting-subtext">SPATIAL ATMOS // MONO</span>
+            </div>
+            <div class="quality-selector">
+              <button id="btn-audio-atmos" class="audio-profile-btn active" data-audio="atmos" type="button">ATMOS 3D</button>
+              <button id="btn-audio-mono" class="audio-profile-btn" data-audio="mono" type="button">MONO</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-footer">
+          <button id="btn-settings-close" class="menu-btn" type="button">APPLY &amp; CLOSE</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="update-log-modal" class="overlay-layer" aria-label="System Update Log">
+      <div class="settings-frame update-log-frame">
+        <div class="settings-header">
+          <span class="hud-tag">SYSTEM CHANGELOG // PROTOCOL</span>
+          <h2 class="settings-title">RELEASE ARCHIVE</h2>
+        </div>
+
+        <div class="credits-scroll-area changelog-scroll">
+          <div class="log-entry">
+            <div class="log-entry-header">
+              <span class="log-version">VERSION 1.0.0</span>
+              <span class="log-date">OCTOBER 2026 // STABLE</span>
+            </div>
+            <ul class="log-list">
+              <li>Initial system deployment: The Boy with the Jagged Tongue.</li>
+              <li>Integrated Detroit-inspired frosted glass HUD and 27 personality matrices.</li>
+              <li>Added real-time Web Audio spatial Atmos and Mono profiles.</li>
+              <li>Added native Desktop Fullscreen, Borderless, and Windowed modes.</li>
+              <li>Added strict Escape-key protection during narrative boot sequences.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="settings-footer">
+          <button id="btn-update-log-close" class="menu-btn" type="button">ACKNOWLEDGE</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="quit-confirm-modal" class="overlay-layer" aria-label="Confirm Termination">
+      <div class="settings-frame quit-dialog-frame">
+        <div class="settings-header">
+          <span class="hud-tag warning-tag">WARNING // SYSTEM SHUTDOWN</span>
+          <h2 class="settings-title warning-title">TERMINATE SIMULATION?</h2>
+        </div>
+        <div class="quit-dialog-content">
+          <p class="dialog-text">
+            Any unsaved narrative states within this node will be synchronized.<br>
+            Are you sure you want to sever the neural link and exit?
+          </p>
+        </div>
+        <div class="dialog-actions">
+          <button id="btn-quit-cancel" class="dialog-btn btn-cancel" type="button">
+            <span class="btn-indicator">○</span>
+            <span>ABORT // RETURN</span>
+          </button>
+          <button id="btn-quit-confirm" class="dialog-btn btn-danger" type="button">
+            <span class="btn-indicator">✕</span>
+            <span>SEVER // TERMINATE</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credits Screen (Detroit Frosted Glass Style) -->
+    <section id="credits-menu" class="overlay-layer" aria-label="Game Credits">
+      <div class="credits-frame">
+        <div class="credits-header">
+          <span class="hud-tag">PRODUCTION ARCHIVE // PERSONNEL</span>
+          <h2 class="credits-title">PROJECT CREDITS</h2>
+        </div>
+
+        <div class="credits-scroll-area">
+          <div class="credits-group">
+            <span class="credits-role">ORIGINAL CONCEPT &amp; DIRECTION</span>
+            <span class="credits-name">ALEXANDER VANCE</span>
+          </div>
+
+          <div class="credits-group">
+            <span class="credits-role">LEAD WRITER &amp; NARRATIVE ARCHITECT</span>
+            <span class="credits-name">ELENA ROSTOVA</span>
+          </div>
+
+          <div class="credits-group">
+            <span class="credits-role">CINEMATOGRAPHY &amp; FMV PRODUCTION</span>
+            <span class="credits-name">KAI CHEN</span>
+            <span class="credits-name">SARAH JENNINGS</span>
+          </div>
+
+          <div class="credits-group">
+            <span class="credits-role">LEAD SOFTWARE ENGINEER &amp; HUD SYSTEM</span>
+            <span class="credits-name">MARCUS HOLLOWAY</span>
+          </div>
+
+          <div class="credits-group">
+            <span class="credits-role">AUDIO DIRECTION &amp; SPATIAL SOUND DESIGN</span>
+            <span class="credits-name">DIMITRI VOLKOV</span>
+          </div>
+
+          <div class="credits-group">
+            <span class="credits-role">PSYCHOANALYSIS MATRIX CONSULTANT</span>
+            <span class="credits-name">DR. ARIA STERLING</span>
+          </div>
+
+          <div class="credits-group">
+            <span class="credits-role">PRODUCED BY</span>
+            <span class="credits-studio">ASHMODEL STUDIOS</span>
+            <span class="credits-year">© 2026 ALL RIGHTS RESERVED</span>
+          </div>
+        </div>
+
+        <div class="credits-footer">
+          <button id="btn-credits-close" class="menu-btn" type="button">RETURN</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>

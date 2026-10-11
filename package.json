@@ -1,0 +1,40 @@
+{
+  "name": "the-boy-with-the-jagged-tongue",
+  "version": "1.0.0",
+  "description": "FMV Interactive Game",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "fmv",
+    "interactive-fiction",
+    "electron"
+  ],
+  "author": "ASHMODEL",
+  "license": "ISC",
+  "build": {
+    "appId": "com.ashmodel.tbjt",
+    "productName": "The Boy with the Jagged Tongue",
+    "files": [
+      "index.html",
+      "style.css",
+      "script.js",
+      "main.js",
+      "preload.js",
+      "videos/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^30.5.1",
+    "electron-builder": "^24.13.3"
+  }
+}
