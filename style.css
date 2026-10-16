@@ -705,7 +705,7 @@ body.perf-mode .personality-card {
 
 /* ================= TOP-RIGHT QUIT BUTTON ================= */
 .hud-top-right-btn {
-  position: absolute;
+  position: fixed;
   top: 2rem;
   right: 2.5rem;
   background: rgba(8, 28, 48, 0.45);
@@ -722,7 +722,7 @@ body.perf-mode .personality-card {
   letter-spacing: 2px;
   backdrop-filter: blur(8px);
   transition: all 0.25s ease;
-  z-index: 40;
+  z-index: 1000;
 }
 
 .hud-top-right-btn:hover {
@@ -740,7 +740,7 @@ body.perf-mode .personality-card {
 
 /* ================= BOTTOM-RIGHT VERSION BADGE ================= */
 .hud-bottom-right-badge {
-  position: absolute;
+  position: fixed;
   bottom: 2rem;
   right: 2.5rem;
   background: rgba(5, 20, 35, 0.65);
@@ -753,7 +753,7 @@ body.perf-mode .personality-card {
   cursor: pointer;
   backdrop-filter: blur(8px);
   transition: all 0.25s ease;
-  z-index: 40;
+  z-index: 1000;
 }
 
 .hud-bottom-right-badge:hover {

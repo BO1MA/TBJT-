@@ -1,6 +1,6 @@
 {
   "name": "the-boy-with-the-jagged-tongue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "FMV Interactive Game",
   "main": "main.js",
   "scripts": {

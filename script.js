@@ -157,7 +157,7 @@ let gameSettings = {
 };
 
 const isDesktopApp = Boolean(window.desktopAPI && window.desktopAPI.isDesktop);
-const CURRENT_VERSION = "1.0.1";
+const CURRENT_VERSION = "1.0.2";
 const GITHUB_REPO = "BO1MA/TBJT";
 const statusIndicator = document.getElementById("version-status-indicator");
 const currentVersionDisplay = document.getElementById("current-version-display");
@@ -199,12 +199,30 @@ function setUpdateBadgeStatus(missedUpdatesCount) {
   }
 }
 
-function checkFirstRunAfterUpdate() {
+function checkVersionStatus() {
   const lastKnownVersion = localStorage.getItem("tbjt_last_run_version");
   if (lastKnownVersion && compareVersions(lastKnownVersion, CURRENT_VERSION) !== 0) {
-    window.setTimeout(openUpdateLog, 800);
+    shouldShowLogAfterIntro = true;
   }
   localStorage.setItem("tbjt_last_run_version", CURRENT_VERSION);
+}
+
+function triggerPostIntroLog() {
+  if (!shouldShowLogAfterIntro) {
+    return;
+  }
+
+  shouldShowLogAfterIntro = false;
+  window.setTimeout(() => {
+    if (typeof openUpdateLog === "function") {
+      openUpdateLog();
+    } else {
+      const updateModal = document.getElementById("update-log-modal");
+      if (updateModal) {
+        updateModal.classList.add("active");
+      }
+    }
+  }, 500);
 }
 
 async function checkGitHubReleases() {
@@ -716,6 +734,8 @@ function showMainMenu() {
   player.play().catch(() => {
     window.addEventListener("click", () => player.play(), { once: true });
   });
+
+  triggerPostIntroLog();
 }
 
 function togglePauseGame() {
@@ -1250,7 +1270,7 @@ btnContinue.addEventListener("click", () => {
 btnSettings.addEventListener("click", openSettings);
 
 loadSettings();
-checkFirstRunAfterUpdate();
+checkVersionStatus();
 checkGitHubReleases();
 window.addEventListener("online", checkGitHubReleases);
 displayButtons.forEach((button) => {
