@@ -15,8 +15,18 @@
   "author": "ASHMODEL",
   "license": "ISC",
   "build": {
-    "appId": "com.ashmodel.tbjt",
+    "appId": "com.ashmudel.tbjt",
     "productName": "The Boy with the Jagged Tongue",
+    "win": {
+      "target": ["nsis"],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "The Boy with the Jagged Tongue",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
     "publish": [
       {
         "provider": "github",

@@ -17,15 +17,9 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1920,
     height: 1080,
-    minWidth: 1280,
-    minHeight: 720,
     fullscreen: true,
-    fullscreenable: true,
-    simpleFullscreen: false,
-    frame: false,
-    useContentSize: true,
     autoHideMenuBar: true,
-    backgroundColor: "#020a12",
+    icon: path.join(__dirname, "icon.png"), // أيقونة شريط المهام والنافذة
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
