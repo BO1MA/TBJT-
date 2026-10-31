@@ -13,7 +13,7 @@ const bootSequence = [
 ];
 let bootIndex = 0;
 
-// 2. Main story video sequence map
+// 2. Main story video sequence map (Acts 1, 2, 3, and Endings)
 const videoSequences = {
   intro: [
     "videos/intro_00_elian_awakening.mp4",
@@ -22,12 +22,43 @@ const videoSequences = {
     "videos/intro_03_cake_unveiling.mp4",
     "videos/intro_04_cake_crack_decision.mp4"
   ],
+
+  // --- ACT 1: MARKET EVENT RESOLUTIONS ---
+  scene1_stone: [
+    "videos/scene1_stone_frame1.mp4",
+    "videos/scene1_stone_frame2.mp4",
+    "videos/scene1_stone_frame3.mp4",
+    "videos/scene1_stone_shards_reaction.mp4"
+  ],
+  scene1_lantern: [
+    "videos/scene1_lantern_frame1.mp4",
+    "videos/scene1_lantern_frame2_alt_tray.mp4",
+    "videos/scene1_lantern_frame3.mp4",
+    "videos/scene1_lantern_frame4.mp4"
+  ],
   scene1_silence: [
     "videos/scene1_silence_frame1.mp4",
     "videos/scene1_silence_frame2.mp4",
     "videos/scene1_silence_frame3.mp4",
     "videos/scene1_silence_frame4.mp4",
     "videos/silence_bridge_mine_entrance.mp4"
+  ],
+
+  // --- ACT 2: JOURNEY TO THE GREAT HALL ---
+  scene2_stone: [
+    "videos/scene2_stone_frame1.mp4",
+    "videos/scene2_stone_frame2.mp4",
+    "videos/scene2_stone_frame3.mp4",
+    "videos/scene2_stone_frame4.mp4",
+    "videos/scene2_stone_frame5.mp4",
+    "videos/scene2_stone_frame6.mp4"
+  ],
+  scene2_lantern: [
+    "videos/scene2_lantern_frame1.mp4",
+    "videos/scene2_lantern_frame2.mp4",
+    "videos/scene2_lantern_frame3.mp4",
+    "videos/scene2_lantern_frame4.mp4",
+    "videos/scene2_lantern_frame5.mp4"
   ],
   scene2_silence: [
     "videos/scene2_silence_frame1.mp4",
@@ -38,48 +69,44 @@ const videoSequences = {
     "videos/scene2_silence_frame6.mp4",
     "videos/scene2_silence_frame7.mp4"
   ],
-  ending_silence: [
-    "videos/ending_silence_frame1.mp4",
-    "videos/ending_silence_frame2.mp4",
-    "videos/ending_silence_frame3.mp4",
-    "videos/ending_silence_frame3_b_snow_shiver.mp4",
-    "videos/ending_silence_frame4.mp4"
+
+  // --- ACT 3: THE GREAT HALL CLIMAX ---
+  scene3_stone: [
+    "videos/scene3_stone_frame1.mp4",
+    "videos/scene3_stone_frame2.mp4",
+    "videos/scene3_stone_frame3.mp4",
+    "videos/scene3_stone_frame4.mp4",
+    "videos/scene3_stone_frame5.mp4",
+    "videos/scene3_stone_frame6.mp4",
+    "videos/scene3_stone_frame7.mp4",
+    "videos/scene3_stone_frame8.mp4",
+    "videos/scene3_stone_frame9.mp4",
+    "videos/scene3_stone_frame10.mp4",
+    "videos/scene3_stone_frame11.mp4"
   ],
-  scene1_lantern: [
-    "videos/scene1_lantern_frame1.mp4",
-    "videos/scene1_lantern_frame2_alt_tray.mp4",
-    "videos/scene1_lantern_frame3.mp4",
-    "videos/scene1_lantern_frame4.mp4"
+  scene3_lantern: [
+    "videos/scene3_lantern_frame1.mp4",
+    "videos/scene3_lantern_frame2.mp4",
+    "videos/scene3_lantern_frame3.mp4",
+    "videos/scene3_lantern_frame4.mp4",
+    "videos/scene3_lantern_frame5.mp4",
+    "videos/scene3_lantern_frame6.mp4",
+    "videos/scene3_lantern_frame7.mp4",
+    "videos/scene3_lantern_frame8.mp4",
+    "videos/scene3_lantern_frame9.mp4",
+    "videos/scene3_lantern_frame10.mp4"
   ],
-  scene2_lantern: [
-    "videos/scene2_lantern_frame1.mp4",
-    "videos/scene2_lantern_frame2.mp4",
-    "videos/scene2_lantern_frame3.mp4",
-    "videos/scene2_lantern_frame4.mp4",
-    "videos/scene2_lantern_frame5.mp4"
+  scene3_silence: [
+    "videos/scene3_silence_frame1.mp4",
+    "videos/scene3_silence_frame2.mp4",
+    "videos/scene3_silence_frame3.mp4",
+    "videos/scene3_silence_frame4.mp4",
+    "videos/scene3_silence_frame5.mp4",
+    "videos/scene3_silence_frame6.mp4",
+    "videos/scene3_silence_frame7.mp4"
   ],
-  ending_lantern: [
-    "videos/ending_lantern_frame1.mp4",
-    "videos/ending_lantern_frame2.mp4",
-    "videos/ending_lantern_frame3.mp4",
-    "videos/ending_lantern_frame5.mp4",
-    "videos/ending_lantern_frame4.mp4",
-    "videos/ending_lantern_frame6.mp4"
-  ],
-  scene1_stone: [
-    "videos/scene1_stone_frame1.mp4",
-    "videos/scene1_stone_frame2.mp4",
-    "videos/scene1_stone_frame3.mp4",
-    "videos/scene1_stone_shards_reaction.mp4"
-  ],
-  scene2_stone: [
-    "videos/scene2_stone_frame1.mp4",
-    "videos/scene2_stone_frame2.mp4",
-    "videos/scene2_stone_frame3.mp4",
-    "videos/scene2_stone_frame4.mp4",
-    "videos/scene2_stone_frame5.mp4",
-    "videos/scene2_stone_frame6.mp4"
-  ],
+
+  // --- FINAL EPILOGUES / TIMELINE CLOSURES ---
   ending_stone: [
     "videos/ending_stone_frame1.mp4",
     "videos/ending_stone_frame2.mp4",
@@ -94,6 +121,350 @@ const videoSequences = {
     "videos/ending_stone_frame11.mp4",
     "videos/ending_stone_frame12.mp4",
     "videos/ending_stone_frame13.mp4"
+  ],
+  ending_lantern: [
+    "videos/ending_lantern_frame1.mp4",
+    "videos/ending_lantern_frame2.mp4",
+    "videos/ending_lantern_frame3.mp4",
+    "videos/ending_lantern_frame4.mp4",
+    "videos/ending_lantern_frame5.mp4",
+    "videos/ending_lantern_frame6.mp4"
+  ],
+  ending_silence: [
+    "videos/ending_silence_frame1.mp4",
+    "videos/ending_silence_frame2.mp4",
+    "videos/ending_silence_frame3.mp4",
+    "videos/ending_silence_frame3_b_snow_shiver.mp4",
+    "videos/ending_silence_frame4.mp4"
+  ]
+};
+
+// 3. Cinematic Subtitles Dictionary
+const subtitlesData = {
+  // ==================== INTRO ====================
+  "intro_00_elian_awakening.mp4": [],
+  "intro_01_childhood_curse.mp4": [
+    { start: 1.0, end: 3.4, text: "I didn't see what people wished for." },
+    { start: 3.6, end: 6.0, text: "I only saw what was." }
+  ],
+  "intro_02_village_outcast.mp4": [
+    { start: 0.8, end: 2.8, text: "<span class='sub-shout'>Look at him! It's him!</span>" },
+    { start: 3.0, end: 6.0, text: "<span class='sub-shout'>Get out!</span>" }
+  ],
+  "intro_03_cake_unveiling.mp4": [
+    { start: 1.8, end: 5.0, text: "<span class='sub-elder'>Citizens! Witness the pinnacle of my career!</span>" },
+    { start: 5.2, end: 8.5, text: "<span class='sub-elder'>Six months of sugar, sweat, and soul!</span>" }
+  ],
+  "intro_04_cake_crack_decision.mp4": [
+    { start: 1.5, end: 4.8, text: "A sharp eye sees the crack before the crash..." },
+    { start: 5.0, end: 8.8, text: "...but a wise heart knows how to mend it without a sound." }
+  ],
+
+  // ==================== ACT 1 ====================
+  // --- scene1_stone ---
+  "scene1_stone_frame1.mp4": [
+    { start: 0.0, end: 3.5, text: "In the village of Oakhaven, every sound had its place." },
+    { start: 3.8, end: 6.8, text: "The ring of the anvil, the song of the lark..." },
+    { start: 7.0, end: 9.5, text: "...and the silence of Elian." }
+  ],
+  "scene1_stone_frame2.mp4": [
+    { start: 0.0, end: 2.5, text: "Elian didn't speak often." },
+    { start: 2.8, end: 5.0, text: "Not because he had nothing to say..." },
+    { start: 5.2, end: 9.5, text: "...but because his words... well, they were different." }
+  ],
+  "scene1_stone_frame3.mp4": [
+    { start: 0.0, end: 2.5, text: "<span class='sub-elder'>My work... destroyed!</span>" },
+    { start: 2.8, end: 5.5, text: "<span class='sub-elder'>Your words are a heavy burden, Elian.</span>" },
+    { start: 5.6, end: 9.5, text: "In Oakhaven, Elian's truth was felt as a weight... a shadow over their joy." }
+  ],
+  "scene1_stone_shards_reaction.mp4": [
+    { start: 2.0, end: 4.5, text: "His voice didn't carry on the wind..." },
+    { start: 4.8, end: 6.8, text: "...it cut through it." }
+  ],
+
+  // --- scene1_lantern ---
+  "scene1_lantern_frame1.mp4": [
+    { start: 0.8, end: 4.8, text: "Grace is the hand that steadies the world when it begins to tilt..." },
+    { start: 5.5, end: 8.8, text: "...often before a single soul notices the lean." }
+  ],
+  "scene1_lantern_frame2_alt_tray.mp4": [
+    { start: 0.8, end: 4.2, text: "Master Algenib, the honey layers are weeping at the south corner." },
+    { start: 4.5, end: 8.8, text: "If you brace it now with the wooden tray, no one will ever know it bowed." }
+  ],
+  "scene1_lantern_frame3.mp4": [
+    { start: 4.5, end: 9.0, text: "<span class='sub-elder'>Oh, stars... Thank you, lad. Just in time.</span>" }
+  ],
+  "scene1_lantern_frame4.mp4": [
+    { start: 2.0, end: 5.0, text: "<span class='sub-narrator'>True strength requires no audience.</span>" },
+    { start: 5.2, end: 9.0, text: "<span class='sub-narrator'>It finds its reward in the stability it leaves behind.</span>" }
+  ],
+
+  // --- scene1_silence ---
+  "scene1_silence_frame1.mp4": [
+    { start: 1.8, end: 5.5, text: "But the past is a gag that never loosens." }
+  ],
+  "scene1_silence_frame2.mp4": [
+    { start: 0.0, end: 3.0, text: "He saw the fault lines before anyone else." },
+    { start: 4.0, end: 5.2, text: "A simple tilt..." },
+    { start: 5.4, end: 8.0, text: "A simple word could have fixed it." }
+  ],
+  "scene1_silence_frame3.mp4": [
+    { start: 3.8, end: 7.5, text: "Safety is the heaviest burden a coward carries." }
+  ],
+  "scene1_silence_frame4.mp4": [
+    { start: 0.5, end: 3.5, text: "<span class='sub-shout'>I can't be part of this anymore...</span>" }
+  ],
+  "silence_bridge_mine_entrance.mp4": [
+    { start: 5.8, end: 7.8, text: "The wood remembers the weight." },
+    { start: 8.0, end: 9.8, text: "Do you, Elian?" }
+  ],
+
+  // ==================== ACT 2 ====================
+  // --- scene2_stone ---
+  "scene2_stone_frame1.mp4": [
+    { start: 0.0, end: 3.8, text: "The winter had teeth, and the Great Hall was its only cage." },
+    { start: 4.0, end: 8.0, text: "But inside, a different kind of rot was festering." }
+  ],
+  "scene2_stone_frame2.mp4": [],
+  "scene2_stone_frame3.mp4": [
+    { start: 0.8, end: 3.5, text: "Elian heard what the others ignored." },
+    { start: 3.8, end: 9.5, text: "The sound of a foundation failing under the weight of its own silence." }
+  ],
+  "scene2_stone_frame4.mp4": [
+    { start: 0.8, end: 3.5, text: "<span class='sub-shout'>The beam! It's hollowed by rot!</span>" },
+    { start: 3.8, end: 8.0, text: "<span class='sub-shout'>Can't you hear it? We must leave before the roof yields to the snow!</span>" }
+  ],
+  "scene2_stone_frame5.mp4": [
+    { start: 0.8, end: 2.5, text: "<span class='sub-elder sub-shout'>Silence, boy!</span>" },
+    { start: 2.8, end: 5.0, text: "<span class='sub-elder'>You bring ill omens when we need hope.</span>" },
+    { start: 5.2, end: 9.5, text: "<span class='sub-elder'>Your tongue is as jagged as the ice outside, and just as cold!</span>" }
+  ],
+  "scene2_stone_frame6.mp4": [],
+
+  // --- scene2_lantern ---
+  "scene2_lantern_frame1.mp4": [
+    { start: 1.0, end: 2.5, text: "<span class='sub-narrator'>Wisdom...</span>" },
+    { start: 3.5, end: 9.0, text: "<span class='sub-narrator'>Wisdom hears the whisper of ruin before it becomes a roar.</span>" }
+  ],
+  "scene2_lantern_frame2.mp4": [
+    { start: 3.0, end: 5.5, text: "<span class='sub-narrator'>Elder Orus, forgive my intrusion.</span>" },
+    { start: 5.8, end: 8.8, text: "<span class='sub-narrator'>The hearth wind is shifting tonight.</span>" }
+  ],
+  "scene2_lantern_frame3.mp4": [
+    { start: 0.0, end: 3.0, text: "The drafts are heavy in the center tonight." },
+    { start: 3.5, end: 8.5, text: "Perhaps the families would find more warmth and comfort by the tapestries at the edges?" }
+  ],
+  "scene2_lantern_frame4.mp4": [],
+  "scene2_lantern_frame5.mp4": [
+    { start: 2.0, end: 4.5, text: "<span class='sub-elder'>We are warm, and we are whole.</span>" },
+    { start: 4.8, end: 9.5, text: "<span class='sub-elder'>To lead is to guide others to safety... so gently they believe they chose the path themselves.</span>" }
+  ],
+
+  // --- scene2_silence ---
+  "scene2_silence_frame1.mp4": [
+    { start: 0.8, end: 2.8, text: "I don't think we can stop it." },
+    { start: 3.0, end: 5.2, text: "What if it destroys everything?" },
+    { start: 5.5, end: 8.5, text: "<span class='sub-shout'>There's no way out... We are trapped here!</span>" }
+  ],
+  "scene2_silence_frame2.mp4": [],
+  "scene2_silence_frame3.mp4": [
+    { start: 3.0, end: 5.0, text: "The cake was a warning." },
+    { start: 5.2, end: 7.5, text: "The hall... the hall was the price." }
+  ],
+  "scene2_silence_frame4.mp4": [
+    { start: 1.8, end: 4.2, text: "<span class='sub-elder sub-shout'>Everyone to the doors!</span>" },
+    { start: 4.5, end: 7.5, text: "<span class='sub-elder sub-shout'>Move quickly! Move quickly!</span>" }
+  ],
+  "scene2_silence_frame5.mp4": [],
+  "scene2_silence_frame6.mp4": [
+    { start: 1.8, end: 4.8, text: "The light showed the truth. The wood was soft." },
+    { start: 5.0, end: 7.0, text: "A child could have seen it." },
+    { start: 7.2, end: 9.0, text: "A coward did." }
+  ],
+  "scene2_silence_frame7.mp4": [
+    { start: 1.5, end: 6.0, text: "He chose the silence of the grave, before the bodies were even cold." }
+  ],
+
+  // ==================== ACT 3 ====================
+  // --- scene3_stone ---
+  "scene3_stone_frame1.mp4": [],
+  "scene3_stone_frame2.mp4": [],
+  "scene3_stone_frame3.mp4": [],
+  "scene3_stone_frame4.mp4": [
+    { start: 0.0, end: 4.0, text: "<span class='sub-shout'>Look up, you blind fools! Your shelter is an open grave!</span>" },
+    { start: 4.5, end: 9.5, text: "The heart of that oak is nothing but sawdust and termite rot!" }
+  ],
+  "scene3_stone_frame5.mp4": [
+    { start: 0.0, end: 3.5, text: "<span class='sub-shout'>The physics do not care about your sanctuary!</span>" },
+    { start: 4.0, end: 9.0, text: "<span class='sub-shout'>Clear the center hall or die beneath it!</span>" }
+  ],
+  "scene3_stone_frame6.mp4": [
+    { start: 0.0, end: 4.5, text: "<span class='sub-elder'>You! The herald of ruin! You shattered the Baker's harvest!</span>" },
+    { start: 5.0, end: 9.5, text: "<span class='sub-elder'>And now you dare vomit your dark omens into our only sanctuary?</span>" }
+  ],
+  "scene3_stone_frame7.mp4": [
+    { start: 0.0, end: 4.0, text: "<span class='sub-elder sub-shout'>Seize the demon! Throw him into the blizzard!</span>" }
+  ],
+  "scene3_stone_frame8.mp4": [
+    { start: 0.0, end: 4.0, text: "<span class='sub-shout'>Get him! Don't let him escape!</span>" },
+    { start: 4.5, end: 9.0, text: "<span class='sub-shout'>Make him pay! No mercy!</span>" }
+  ],
+  "scene3_stone_frame9.mp4": [],
+  "scene3_stone_frame10.mp4": [],
+  "scene3_stone_frame11.mp4": [],
+
+  // --- scene3_lantern ---
+  "scene3_lantern_frame1.mp4": [
+    { start: 3.0, end: 9.0, text: "<span class='sub-narrator'>Truth is a blade... if held poorly, it cuts the wielder and the witness alike.</span>" }
+  ],
+  "scene3_lantern_frame2.mp4": [
+    { start: 4.5, end: 7.0, text: "He saw the rot..." },
+    { start: 7.1, end: 9.5, text: "He saw the end." }
+  ],
+  "scene3_lantern_frame3.mp4": [
+    { start: 0.0, end: 5.5, text: "Elder, forgive the interruption, but the north wind is playing a cruel trick on the rafters tonight." },
+    { start: 5.6, end: 9.0, text: "<span class='sub-elder'>The wind? Speak plainly, boy!</span>" }
+  ],
+  "scene3_lantern_frame4.mp4": [
+    { start: 0.0, end: 4.5, text: "The northern draft is cutting down through the chimney seam..." },
+    { start: 5.0, end: 9.5, text: "The families on the center benches are beginning to shiver." }
+  ],
+  "scene3_lantern_frame5.mp4": [
+    { start: 0.0, end: 9.5, text: "If we shift all the center benches toward the outer wall hearths right now, we can keep every child warm until morning." }
+  ],
+  "scene3_lantern_frame6.mp4": [
+    { start: 1.0, end: 4.5, text: "<span class='sub-elder'>You speak wisely, lad. Listen well!</span>" },
+    { start: 4.6, end: 9.5, text: "<span class='sub-elder'>All benches are to clear the center aisle immediately!</span>" }
+  ],
+  "scene3_lantern_frame7.mp4": [
+    { start: 4.0, end: 9.0, text: "<span class='sub-narrator'>Grace provides the space for the truth to land without breaking lives.</span>" }
+  ],
+  "scene3_lantern_frame8.mp4": [],
+  "scene3_lantern_frame9.mp4": [],
+  "scene3_lantern_frame10.mp4": [
+    { start: 6.8, end: 9.8, text: "The truth didn't break them. It saved them." }
+  ],
+
+  // --- scene3_silence ---
+  "scene3_silence_frame1.mp4": [
+    { start: 0.0, end: 7.0, text: "The cold did not merely chill Elian's skin... It had entered his soul." }
+  ],
+  "scene3_silence_frame2.mp4": [
+    { start: 0.0, end: 3.0, text: "They do not want the light." },
+    { start: 5.0, end: 9.0, text: "Wake them, and they will tear you apart for interrupting their dream." }
+  ],
+  "scene3_silence_frame3.mp4": [
+    { start: 0.0, end: 4.5, text: "His vision parsed reality with excruciating clarity..." },
+    { start: 5.5, end: 9.5, text: "A hairline fracture. 400 heartbeats remaining." }
+  ],
+  "scene3_silence_frame4.mp4": [
+    { start: 0.0, end: 5.0, text: "Fear has a way of silencing the boldest visual cues..." },
+    { start: 5.5, end: 9.5, text: "Before a sound could escape, his voice was stolen." }
+  ],
+  "scene3_silence_frame5.mp4": [
+    { start: 0.0, end: 4.5, text: "Why die for people who despise you?" },
+    { start: 6.5, end: 9.5, text: "He turned his spine on the center aisle." }
+  ],
+  "scene3_silence_frame6.mp4": [
+    { start: 0.0, end: 8.0, text: "500 heartbeats... 400... 300..." }
+  ],
+  "scene3_silence_frame7.mp4": [
+    { start: 1.5, end: 6.0, text: "The ties that bind are never truly strong..." },
+    { start: 6.5, end: 9.8, text: "Until nothing is left but the cold silence." }
+  ],
+
+  // ==================== ENDINGS ====================
+  // --- ending_stone ---
+  "ending_stone_frame1.mp4": [
+    { start: 5.0, end: 8.5, text: "The weight of their silence finally broke the world." }
+  ],
+  "ending_stone_frame2.mp4": [
+    { start: 3.0, end: 5.0, text: "The boy did not lie." },
+    { start: 5.2, end: 9.2, text: "The truth was not a word, but a geometry of survival." }
+  ],
+  "ending_stone_frame3.mp4": [
+    { start: 1.8, end: 4.0, text: "It showed them the way." },
+    { start: 5.0, end: 7.0, text: "Not the way they wanted..." },
+    { start: 7.5, end: 9.5, text: "...but the way that was." }
+  ],
+  "ending_stone_frame4.mp4": [],
+  "ending_stone_frame5.mp4": [
+    { start: 3.5, end: 5.2, text: "In the light of the truth..." },
+    { start: 5.5, end: 9.5, text: "...they finally saw the boy they had cast into the dark." }
+  ],
+  "ending_stone_frame6.mp4": [
+    { start: 1.0, end: 3.0, text: "<span class='sub-elder'>Forgive us.</span>" },
+    { start: 5.0, end: 7.5, text: "The jagged tongue had cut them deep..." },
+    { start: 7.8, end: 9.8, text: "...only so the healing could begin." }
+  ],
+  "ending_stone_frame7.mp4": [
+    { start: 0.8, end: 2.8, text: "The mountain had gone silent." },
+    { start: 3.0, end: 4.2, text: "The walls held." },
+    { start: 4.5, end: 9.2, text: "But within the stillness of the great hall, a different kind of storm was settling in the boy's heart." }
+  ],
+  "ending_stone_frame8.mp4": [
+    { start: 1.0, end: 4.8, text: "For years, Elian had used the truth like a blade." },
+    { start: 5.2, end: 7.0, text: "He had been right, yes..." },
+    { start: 7.2, end: 9.5, text: "...but he had been cruel." }
+  ],
+  "ending_stone_frame9.mp4": [
+    { start: 4.8, end: 6.5, text: "I gave them the truth..." },
+    { start: 7.0, end: 9.5, text: "...but I gave it to them as a wound." }
+  ],
+  "ending_stone_frame10.mp4": [
+    { start: 0.2, end: 1.5, text: "He saw it then." },
+    { start: 1.8, end: 5.0, text: "<span class='sub-narrator'>Truth without grace is just another way to break a person.</span>" },
+    { start: 5.5, end: 9.5, text: "<span class='sub-narrator'>But truth held in kindness... that is a light that guides them home.</span>" }
+  ],
+  "ending_stone_frame11.mp4": [],
+  "ending_stone_frame12.mp4": [
+    { start: 0.2, end: 2.8, text: "<span class='sub-narrator'>Next time, I will lead with the light.</span>" },
+    { start: 3.0, end: 5.2, text: "The boy with the jagged tongue was gone." },
+    { start: 5.4, end: 9.5, text: "In his place sat a young man who finally understood the weight of his words." }
+  ],
+  "ending_stone_frame13.mp4": [
+    { start: 3.8, end: 7.5, text: "And for the first time in Oakhaven, the truth didn't hurt..." },
+    { start: 7.8, end: 9.5, text: "...it healed." }
+  ],
+
+  // --- ending_lantern ---
+  "ending_lantern_frame1.mp4": [
+    { start: 2.5, end: 4.2, text: "The truth did not break the house." },
+    { start: 4.3, end: 7.2, text: "It only revealed where the house was already broken." }
+  ],
+  "ending_lantern_frame2.mp4": [
+    { start: 1.5, end: 4.0, text: "In that moment, they saw not a harbinger of doom..." },
+    { start: 4.1, end: 6.5, text: "...but a shepherd of the light." }
+  ],
+  "ending_lantern_frame3.mp4": [
+    { start: 3.5, end: 5.5, text: "<span class='sub-elder'>You saved our lives, Elian.</span>" },
+    { start: 5.6, end: 9.5, text: "<span class='sub-elder'>We were blind to the rot, but you gave us the eyes to see.</span>" }
+  ],
+  "ending_lantern_frame4.mp4": [],
+  "ending_lantern_frame5.mp4": [
+    { start: 0.5, end: 3.0, text: "<span class='sub-narrator'>Truth is a guiding star, not a blade.</span>" },
+    { start: 3.1, end: 5.5, text: "<span class='sub-narrator'>When delivered with kindness, it does not cut...</span>" },
+    { start: 5.6, end: 8.8, text: "<span class='sub-narrator'>...it illuminates the path home.</span>" }
+  ],
+  "ending_lantern_frame6.mp4": [
+    { start: 1.0, end: 5.5, text: "And so, the lantern path led him exactly where he needed to be." },
+    { start: 6.0, end: 9.2, text: "Not to a destination... but to a neighbor." }
+  ],
+
+  // --- ending_silence ---
+  "ending_silence_frame1.mp4": [],
+  "ending_silence_frame2.mp4": [
+    { start: 0.8, end: 2.5, text: "He was safe." },
+    { start: 2.6, end: 4.0, text: "He was whole." },
+    { start: 4.2, end: 8.0, text: "He was cursed... He was cursed." }
+  ],
+  "ending_silence_frame3.mp4": [
+    { start: 5.0, end: 8.5, text: "<span class='sub-shout'>I let the roof crush them...</span>" }
+  ],
+  "ending_silence_frame3_b_snow_shiver.mp4": [],
+  "ending_silence_frame4.mp4": [
+    { start: 4.0, end: 6.2, text: "The Silence path is a long one..." },
+    { start: 6.3, end: 9.0, text: "...and Elian walks it alone." }
   ]
 };
 
@@ -103,6 +474,7 @@ let activeSequenceIndex = 0;
 let isGamePaused = false;
 let isIntroActive = true;
 let isEndingAnalysisActive = false;
+let shouldShowLogAfterIntro = false;
 
 const player = document.getElementById("fmv-player");
 const loadingScreen = document.getElementById("loading-screen");
@@ -115,8 +487,9 @@ const dbhOverlay = document.getElementById("dbh-overlay");
 const hudPrompt = document.getElementById("hud-prompt");
 const nodesContainer = document.getElementById("nodes-container");
 const timerBar = document.getElementById("timer-bar");
+const subtitleBox = document.getElementById("subtitle-box");
 
-// Pause elements
+// Pause & Settings elements
 const pauseMenu = document.getElementById("pause-menu");
 const btnPauseTrigger = document.getElementById("btn-pause-trigger");
 const btnPauseResume = document.getElementById("btn-pause-resume");
@@ -126,6 +499,7 @@ const settingsMenu = document.getElementById("settings-menu");
 const volumeSlider = document.getElementById("volume-slider");
 const volumeValDisplay = document.getElementById("volume-val-display");
 const muteToggle = document.getElementById("mute-toggle");
+const subtitlesToggle = document.getElementById("subtitles-toggle");
 const btnFullscreenToggle = document.getElementById("btn-fullscreen-toggle");
 const platformTag = document.getElementById("platform-tag");
 const desktopControls = document.getElementById("desktop-display-controls");
@@ -134,8 +508,7 @@ const displayButtons = document.querySelectorAll(".display-btn");
 const btnSettingsClose = document.getElementById("btn-settings-close");
 const creditsMenu = document.getElementById("credits-menu");
 const btnCreditsClose = document.getElementById("btn-credits-close");
-const quitTriggerBtn = document.getElementById("btn-quit")
-  || document.getElementById("btn-desktop-quit");
+const quitTriggerBtn = document.getElementById("btn-quit") || document.getElementById("btn-desktop-quit");
 const quitConfirmModal = document.getElementById("quit-confirm-modal");
 const btnQuitCancel = document.getElementById("btn-quit-cancel");
 const btnQuitConfirm = document.getElementById("btn-quit-confirm");
@@ -151,13 +524,14 @@ const SETTINGS_KEY = "jagged_tongue_settings";
 let gameSettings = {
   volume: 100,
   muted: false,
+  subtitles: true,
   graphics: "cinematic",
   audioProfile: "atmos",
   displayMode: "fullscreen"
 };
 
 const isDesktopApp = Boolean(window.desktopAPI && window.desktopAPI.isDesktop);
-const CURRENT_VERSION = "1.0.2";
+const CURRENT_VERSION = "1.0.4";
 const GITHUB_REPO = "BO1MA/TBJT";
 const statusIndicator = document.getElementById("version-status-indicator");
 const currentVersionDisplay = document.getElementById("current-version-display");
@@ -208,20 +582,10 @@ function checkVersionStatus() {
 }
 
 function triggerPostIntroLog() {
-  if (!shouldShowLogAfterIntro) {
-    return;
-  }
-
+  if (!shouldShowLogAfterIntro) return;
   shouldShowLogAfterIntro = false;
   window.setTimeout(() => {
-    if (typeof openUpdateLog === "function") {
-      openUpdateLog();
-    } else {
-      const updateModal = document.getElementById("update-log-modal");
-      if (updateModal) {
-        updateModal.classList.add("active");
-      }
-    }
+    if (updateLogModal) updateLogModal.classList.add("active");
   }, 500);
 }
 
@@ -231,8 +595,8 @@ async function checkGitHubReleases() {
     const response = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/releases`);
     if (!response.ok) return;
     const releases = await response.json();
-    const newerReleases = releases.filter((release) =>
-      !release.draft && !release.prerelease && compareVersions(release.tag_name, CURRENT_VERSION) > 0
+    const newerReleases = releases.filter(
+      (release) => !release.draft && !release.prerelease && compareVersions(release.tag_name, CURRENT_VERSION) > 0
     );
     setUpdateBadgeStatus(newerReleases.length);
   } catch (error) {
@@ -282,6 +646,7 @@ function loadSettings() {
         ...gameSettings,
         volume: Number.isFinite(Number(parsed.volume)) ? Math.max(0, Math.min(100, Number(parsed.volume))) : gameSettings.volume,
         muted: Boolean(parsed.muted),
+        subtitles: parsed.subtitles !== undefined ? Boolean(parsed.subtitles) : true,
         graphics: parsed.graphics === "performance" ? "performance" : "cinematic",
         audioProfile: parsed.audioProfile === "mono" ? "mono" : "atmos",
         displayMode: ["fullscreen", "borderless", "windowed"].includes(parsed.displayMode)
@@ -296,6 +661,7 @@ function loadSettings() {
   volumeSlider.value = String(gameSettings.volume);
   volumeValDisplay.textContent = `${gameSettings.volume}%`;
   muteToggle.checked = gameSettings.muted;
+  if (subtitlesToggle) subtitlesToggle.checked = gameSettings.subtitles;
   player.volume = gameSettings.volume / 100;
   player.muted = gameSettings.muted;
   setGraphicsProfile(gameSettings.graphics);
@@ -307,9 +673,7 @@ function saveSettings() {
 }
 
 function applyDesktopDisplayMode(mode) {
-  const selectedMode = ["fullscreen", "borderless", "windowed"].includes(mode)
-    ? mode
-    : "fullscreen";
+  const selectedMode = ["fullscreen", "borderless", "windowed"].includes(mode) ? mode : "fullscreen";
   gameSettings.displayMode = selectedMode;
 
   displayButtons.forEach((button) => {
@@ -335,6 +699,36 @@ function setupPlatformSettings() {
   }
 }
 
+// ----------------- Mobile Landscape & Fullscreen Control -----------------
+async function triggerMobileLandscapeFullscreen() {
+  if (isDesktopApp) return;
+
+  const docEl = document.documentElement;
+
+  try {
+    if (!document.fullscreenElement) {
+      if (docEl.requestFullscreen) {
+        await docEl.requestFullscreen();
+      } else if (docEl.webkitRequestFullscreen) {
+        await docEl.webkitRequestFullscreen();
+      } else if (docEl.msRequestFullscreen) {
+        await docEl.msRequestFullscreen();
+      }
+    }
+  } catch (err) {
+    console.warn("Fullscreen request not allowed or cancelled:", err);
+  }
+
+  try {
+    if (screen.orientation && screen.orientation.lock) {
+      await screen.orientation.lock("landscape");
+    }
+  } catch (err) {
+    console.warn("Screen orientation lock unavailable on this browser:", err);
+  }
+}
+
+// ----------------- Web Audio Engine -----------------
 let audioCtx = null;
 let sourceNode = null;
 let bassFilter = null;
@@ -597,11 +991,7 @@ const personalityProfiles = {
 function getPersonalityResult(history) {
   const k1 = history[0] || "silence";
   const k2 = history[1] || "silence";
-  const k3 = history[2] || (
-    state.lantern >= state.stone
-      ? (state.lantern > 0 ? "lantern" : "silence")
-      : "stone"
-  );
+  const k3 = history[2] || "silence";
   const key = `${k1}-${k2}-${k3}`;
 
   return {
@@ -610,33 +1000,56 @@ function getPersonalityResult(history) {
   };
 }
 
-
+// 4. Multi-Tier Decision System (3 Interactive Choice Nodes)
 const dbhDecisions = {
   cake_event: {
-    prompt: "STRUCTURAL FRACTURE IMMINENT",
+    prompt: "STRUCTURAL FRACTURE IMMINENT // THE CAKE",
     choices: [
       {
         tag: "CONFRONT [STONE]",
-        text: "Expose the truth.",
+        text: "Expose the collapse.",
         type: "stone",
-        nextNode: "beam_event"
+        nextNode: "journey_event"
       },
       {
         tag: "MERCY [LANTERN]",
         text: "Mend it quietly.",
         type: "lantern",
-        nextNode: "beam_event"
+        nextNode: "journey_event"
       },
       {
         tag: "SILENCE [FROST]",
         text: "Fade into shadows.",
         type: "silence",
-        nextNode: "beam_event"
+        nextNode: "journey_event"
       }
     ]
   },
-  beam_event: {
-    prompt: "CEILING TIMBER COLLAPSE",
+  journey_event: {
+    prompt: "MORAL STRAIN // ENTERING THE SANCTUARY",
+    choices: [
+      {
+        tag: "HARDEN [STONE]",
+        text: "Prepare the bitter blow.",
+        type: "stone",
+        nextNode: "hall_event"
+      },
+      {
+        tag: "CARRY [LANTERN]",
+        text: "Hold the fragile light.",
+        type: "lantern",
+        nextNode: "hall_event"
+      },
+      {
+        tag: "SHRINK [SILENCE]",
+        text: "Withdraw your warmth.",
+        type: "silence",
+        nextNode: "hall_event"
+      }
+    ]
+  },
+  hall_event: {
+    prompt: "CEILING TIMBER COLLAPSE // THE GREAT HALL",
     choices: [
       {
         tag: "DEFIANCE [STONE]",
@@ -704,10 +1117,7 @@ function completeGameSession() {
 }
 
 function saveCurrentState() {
-  if (dbhOverlay.classList.contains("active")) {
-    return;
-  }
-
+  if (dbhOverlay.classList.contains("active")) return;
   if (activeSequence && activeSequenceName) {
     saveProgressFrame({
       sequenceName: activeSequenceName,
@@ -721,6 +1131,7 @@ function saveCurrentState() {
 // ----------------- Main menu and pause flow -----------------
 function showMainMenu() {
   hidePauseButton();
+  if (subtitleBox) subtitleBox.classList.remove("show");
   isEndingAnalysisActive = false;
   loadingScreen.classList.remove("active");
   dbhOverlay.classList.remove("active");
@@ -746,8 +1157,6 @@ function togglePauseGame() {
   isGamePaused = !isGamePaused;
 
   if (isGamePaused) {
-    // Reset the save state when starting a new game or continuing:
-    // If the saved game is invalid or stale, clear it and continue with the current timeline
     let targetIndex = activeSequenceIndex;
     if (player.duration && (player.duration - player.currentTime <= 1.0 || player.currentTime / player.duration > 0.9)) {
       targetIndex = activeSequenceIndex + 1;
@@ -772,7 +1181,7 @@ function togglePauseGame() {
       timerBar.style.animationPlayState = "running";
     }
     if (!dbhOverlay.classList.contains("active")) {
-      player.play().catch(e => console.warn(e));
+      player.play().catch((e) => console.warn(e));
     }
   }
 }
@@ -808,9 +1217,7 @@ window.addEventListener("keydown", (e) => {
     return;
   }
 
-  if (e.key !== "Escape" && e.code !== "Escape") {
-    return;
-  }
+  if (e.key !== "Escape" && e.code !== "Escape") return;
 
   if (
     isIntroActive ||
@@ -845,10 +1252,18 @@ muteToggle.addEventListener("change", (event) => {
   saveSettings();
 });
 
+if (subtitlesToggle) {
+  subtitlesToggle.addEventListener("change", (event) => {
+    gameSettings.subtitles = event.target.checked;
+    if (!gameSettings.subtitles && subtitleBox) {
+      subtitleBox.classList.remove("show");
+    }
+    saveSettings();
+  });
+}
+
 btnFullscreenToggle.addEventListener("click", async () => {
-  if (isDesktopApp) {
-    return;
-  }
+  if (isDesktopApp) return;
   try {
     if (document.fullscreenElement) {
       await document.exitFullscreen();
@@ -870,18 +1285,15 @@ btnSettingsClose.addEventListener("click", closeSettings);
 function openCredits() {
   creditsMenu.classList.add("active");
 }
-
 function closeCredits() {
   creditsMenu.classList.remove("active");
 }
-
 btnCredits.addEventListener("click", openCredits);
 btnCreditsClose.addEventListener("click", closeCredits);
 
 function openUpdateLog() {
   updateLogModal.classList.add("active");
 }
-
 function closeUpdateLog() {
   updateLogModal.classList.remove("active");
 }
@@ -931,28 +1343,26 @@ btnRebootSession.addEventListener("click", () => {
 });
 
 gfxButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    setGraphicsProfile(button.dataset.perf);
-  });
+  button.addEventListener("click", () => setGraphicsProfile(button.dataset.perf));
 });
 
 audioProfileButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (audioCtx && audioCtx.state === "suspended") {
-      audioCtx.resume();
-    }
+    if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
     setAudioProfile(button.dataset.audio);
   });
 });
 
-window.addEventListener("pointerdown", () => {
-  initAudioEngine();
-  if (audioCtx && audioCtx.state === "suspended") {
-    audioCtx.resume();
-  }
-}, { once: true });
+window.addEventListener(
+  "pointerdown",
+  () => {
+    initAudioEngine();
+    if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+  },
+  { once: true }
+);
 
-// ----------------- Settings and graphics -----------------
+// ----------------- Video Sequence Playback & Subtitle Hook -----------------
 function playBootSequence() {
   loadingScreen.classList.remove("active");
   hidePauseButton();
@@ -963,7 +1373,7 @@ function playBootSequence() {
     bootIndex++;
     player.play().catch(() => {
       player.muted = true;
-      player.play().catch(e => console.error(e));
+      player.play().catch((e) => console.error(e));
     });
     player.onended = () => playBootSequence();
   } else {
@@ -992,6 +1402,7 @@ function playSequence(sequenceName, onComplete, startFrameIndex = 0) {
       activeSequence = null;
       activeSequenceName = null;
       player.onended = null;
+      if (subtitleBox) subtitleBox.classList.remove("show");
       if (onComplete) onComplete();
     }
   };
@@ -1000,6 +1411,8 @@ function playSequence(sequenceName, onComplete, startFrameIndex = 0) {
 }
 
 function loadAndPlaySequenceClip(sequenceName, onComplete) {
+  if (subtitleBox) subtitleBox.classList.remove("show");
+
   if (!sequenceName.startsWith("ending_")) {
     saveProgressFrame({
       sequenceName: sequenceName,
@@ -1014,20 +1427,48 @@ function loadAndPlaySequenceClip(sequenceName, onComplete) {
   player.play().catch((error) => {
     console.warn(`Autoplay audio issue, playing muted:`, error);
     player.muted = true;
-    player.play().catch(err => console.error("Error playing:", err));
+    player.play().catch((err) => console.error("Error playing:", err));
   });
 }
 
-// ----------------- Choice nodes -----------------
+// ----------------- Real-time Subtitles Sync -----------------
+player.addEventListener("timeupdate", () => {
+  if (!gameSettings.subtitles || !activeSequence || !activeSequenceName || !subtitleBox) {
+    if (subtitleBox) subtitleBox.classList.remove("show");
+    return;
+  }
+
+  const currentSrc = activeSequence[activeSequenceIndex] || "";
+  const filename = currentSrc.split("/").pop();
+  const cues = subtitlesData[filename];
+
+  if (!cues || cues.length === 0) {
+    subtitleBox.classList.remove("show");
+    return;
+  }
+
+  const currentTime = player.currentTime;
+  const currentCue = cues.find((c) => currentTime >= c.start && currentTime <= c.end);
+
+  if (currentCue) {
+    subtitleBox.innerHTML = currentCue.text;
+    subtitleBox.classList.add("show");
+  } else {
+    subtitleBox.classList.remove("show");
+  }
+});
+
+// ----------------- Decision HUD Nodes -----------------
 function displayDBHChoice(nodeKey, previousSequenceName = null) {
   const nodeData = dbhDecisions[nodeKey];
   if (!nodeData) return;
+
+  if (subtitleBox) subtitleBox.classList.remove("show");
 
   if (nodeKey === "cake_event") {
     isIntroActive = false;
   }
 
-  // Create a button that triggers the choice and clearly marks it as a Continue action
   let lastClip = null;
   if (previousSequenceName && videoSequences[previousSequenceName]) {
     const list = videoSequences[previousSequenceName];
@@ -1085,9 +1526,14 @@ function displayDBHChoice(nodeKey, previousSequenceName = null) {
       choiceHistory.push(choice.type);
       player.muted = false;
 
-      const nextSeqKey = choice.nextNode === "beam_event"
-        ? `scene1_${choice.type}`
-        : `scene2_${choice.type}`;
+      let nextSeqKey;
+      if (nodeKey === "cake_event") {
+        nextSeqKey = `scene1_${choice.type}`;
+      } else if (nodeKey === "journey_event") {
+        nextSeqKey = `scene2_${choice.type}`;
+      } else {
+        nextSeqKey = `scene3_${choice.type}`;
+      }
 
       saveProgressFrame({
         sequenceName: nextSeqKey,
@@ -1112,28 +1558,24 @@ function displayDBHChoice(nodeKey, previousSequenceName = null) {
 
 function resolveDBHEnding() {
   isEndingAnalysisActive = false;
+
   let endingType = "stone";
-  if (state.lantern >= 1 && state.lantern >= state.stone) {
+  if (state.lantern >= 2 || (state.lantern >= 1 && state.lantern >= state.stone)) {
     endingType = "lantern";
   } else if (state.silence >= 2) {
     endingType = "silence";
-  }
-
-  if (choiceHistory.length < 3) {
-    choiceHistory.push(endingType);
   }
 
   playSequence(`ending_${endingType}`, () => {
     isEndingAnalysisActive = true;
     completeGameSession();
     hidePauseButton();
+
     const personality = getPersonalityResult(choiceHistory);
     hudPrompt.textContent = "TIMELINE TERMINATED // ANALYSIS COMPLETE";
     nodesContainer.replaceChildren();
 
-    if (timerBar) {
-      timerBar.classList.remove("running");
-    }
+    if (timerBar) timerBar.classList.remove("running");
 
     const card = document.createElement("div");
     card.className = "personality-card";
@@ -1178,20 +1620,20 @@ function resolveDBHEnding() {
       choiceHistory = [];
       showMainMenu();
     });
+
     card.appendChild(returnButton);
     nodesContainer.appendChild(card);
     dbhOverlay.classList.add("active");
   });
 }
 
-// ----------------- Pause flow and action handling -----------------
+// ----------------- Startup and Navigation Controls -----------------
 window.addEventListener("DOMContentLoaded", () => {
-  window.setTimeout(() => {
-    playBootSequence();
-  }, 1000);
+  window.setTimeout(() => playBootSequence(), 1000);
 });
 
 btnNewGame.addEventListener("click", () => {
+  triggerMobileLandscapeFullscreen();
   choiceHistory = [];
   state.stone = 0;
   state.lantern = 0;
@@ -1208,6 +1650,7 @@ btnNewGame.addEventListener("click", () => {
 });
 
 btnContinue.addEventListener("click", () => {
+  triggerMobileLandscapeFullscreen();
   const saved = getSavedGame();
   if (!saved) {
     updateContinueButtonVisibility();
@@ -1224,15 +1667,12 @@ btnContinue.addEventListener("click", () => {
   player.muted = false;
   showPauseButton();
 
-  // 1. To avoid breaking the sense of the decision, never skip while a choice is active
   if (saved.isAtDecision && saved.decisionKey) {
     const savedSequence = saved.sequenceName && videoSequences[saved.sequenceName];
     const savedFrameIndex = savedSequence
       ? Math.max(0, Math.min(Number(saved.frameIndex) || 0, savedSequence.length - 1))
       : 0;
-    const savedFrameSource = savedSequence
-      ? savedSequence[savedFrameIndex]
-      : saved.lastFrameBeforeDecision;
+    const savedFrameSource = savedSequence ? savedSequence[savedFrameIndex] : saved.lastFrameBeforeDecision;
 
     if (savedFrameSource) {
       activeSequence = savedSequence || null;
@@ -1241,7 +1681,10 @@ btnContinue.addEventListener("click", () => {
       player.loop = false;
       player.src = savedFrameSource;
       player.currentTime = 0;
-      player.play().catch(() => { player.muted = true; player.play(); });
+      player.play().catch(() => {
+        player.muted = true;
+        player.play();
+      });
 
       player.onended = () => {
         player.onended = null;
@@ -1253,17 +1696,22 @@ btnContinue.addEventListener("click", () => {
     return;
   }
 
-  // 2. Do not skip while in menus or overlays: the game must not fast-forward during navigation or UI states
   if (saved.sequenceName && videoSequences[saved.sequenceName]) {
-    playSequence(saved.sequenceName, () => {
-      if (saved.sequenceName === "intro") {
-        displayDBHChoice("cake_event", "intro");
-      } else if (saved.sequenceName.startsWith("scene1_")) {
-        displayDBHChoice("beam_event", saved.sequenceName);
-      } else if (saved.sequenceName.startsWith("scene2_")) {
-        resolveDBHEnding();
-      }
-    }, saved.frameIndex);
+    playSequence(
+      saved.sequenceName,
+      () => {
+        if (saved.sequenceName === "intro") {
+          displayDBHChoice("cake_event", "intro");
+        } else if (saved.sequenceName.startsWith("scene1_")) {
+          displayDBHChoice("journey_event", saved.sequenceName);
+        } else if (saved.sequenceName.startsWith("scene2_")) {
+          displayDBHChoice("hall_event", saved.sequenceName);
+        } else if (saved.sequenceName.startsWith("scene3_")) {
+          resolveDBHEnding();
+        }
+      },
+      saved.frameIndex
+    );
   }
 });
 
@@ -1274,12 +1722,11 @@ checkVersionStatus();
 checkGitHubReleases();
 window.addEventListener("online", checkGitHubReleases);
 displayButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    applyDesktopDisplayMode(button.dataset.mode);
-  });
+  button.addEventListener("click", () => applyDesktopDisplayMode(button.dataset.mode));
 });
 setupPlatformSettings();
 
+// Fast-forward / Skip current frame
 function skipCurrentFrame() {
   if (
     mainMenu.classList.contains("active") ||
@@ -1295,9 +1742,11 @@ function skipCurrentFrame() {
   const isLastFrameInSequence = activeSequenceIndex >= activeSequence.length - 1;
   const isLeadingToChoice =
     activeSequenceName === "intro" ||
-    (activeSequenceName && activeSequenceName.startsWith("scene1_"));
-  const isStoryEnding =
-    activeSequenceName && activeSequenceName.startsWith("ending_");
+    (activeSequenceName &&
+      (activeSequenceName.startsWith("scene1_") ||
+        activeSequenceName.startsWith("scene2_") ||
+        activeSequenceName.startsWith("scene3_")));
+  const isStoryEnding = activeSequenceName && activeSequenceName.startsWith("ending_");
 
   if (isLastFrameInSequence && (isLeadingToChoice || isStoryEnding)) {
     return;

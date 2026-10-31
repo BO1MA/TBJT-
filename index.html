@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>The Boy With The Jagged Tongue</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- أيقونة تبويب المتصفح -->
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<!-- لدعم المتصفحات الحديثة وشاشات الهواتف عند فتح الويب -->
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 </head>
 <body>
   <main id="game-container">
@@ -19,7 +17,10 @@
       <source src="" type="video/mp4">
     </video>
 
-    <!-- Pause button -->
+    <!-- حاوية الترجمة السينمائية -->
+    <div id="subtitle-box" class="hud-subtitles" aria-live="polite"></div>
+
+    <!-- زر التوقف المؤقت -->
     <button id="btn-pause-trigger" class="hud-pause-btn" type="button" aria-label="Pause Game">
       <span class="pause-icon">❚❚</span>
       <span class="pause-text">PAUSE</span>
@@ -41,7 +42,7 @@
       </button>
       <div id="btn-version-log" class="hud-bottom-right-badge" role="button" tabindex="0" aria-label="Open release archive">
         <span id="version-status-indicator" class="status-indicator status-green" title="SYSTEM UP TO DATE">✓</span>
-        <span class="version-label">BUILD // <span id="current-version-display">v1.0.2</span></span>
+        <span class="version-label">BUILD // <span id="current-version-display">v1.0.4</span></span>
       </div>
       <div class="menu-container">
         <nav class="menu-nav" aria-label="Main menu actions">
@@ -53,6 +54,7 @@
       </div>
     </section>
 
+    <!-- Web session terminated screen -->
     <section id="web-shutdown-screen" class="overlay-layer" aria-label="Session Terminated">
       <div class="settings-frame shutdown-frame">
         <span class="hud-tag">STATUS // SYSTEM DISCONNECTED</span>
@@ -94,6 +96,7 @@
       </div>
     </section>
 
+    <!-- Settings menu overlay -->
     <section id="settings-menu" class="overlay-layer" aria-label="Game Settings">
       <div class="settings-frame">
         <div class="settings-header">
@@ -114,6 +117,18 @@
             <span class="setting-label">MUTE SOUND</span>
             <label class="dbh-switch">
               <input id="mute-toggle" type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <!-- زر تشغيل/إيقاف الترجمة -->
+          <div class="setting-item row-layout">
+            <div class="setting-desc-box">
+              <span class="setting-label">SUBTITLES</span>
+              <span class="setting-subtext">CINEMATIC DIALOGUE OVERLAY</span>
+            </div>
+            <label class="dbh-switch">
+              <input id="subtitles-toggle" type="checkbox" checked>
               <span class="slider round"></span>
             </label>
           </div>
@@ -162,6 +177,7 @@
       </div>
     </section>
 
+    <!-- Release archive modal -->
     <section id="update-log-modal" class="overlay-layer" aria-label="System Update Log">
       <div class="settings-frame update-log-frame">
         <div class="settings-header">
@@ -172,18 +188,44 @@
         <div class="credits-scroll-area changelog-scroll">
           <div class="log-entry">
             <div class="log-entry-header">
-                <span class="log-version">VERSION 1.0.2</span>
-                <span class="log-date">OCTOBER 2026 // PATCH</span>
-              </div>
-              <ul class="log-list">
-                <li>HUD button anchors locked to fixed screen-bounds (Desktop/Web).</li>
-                <li>Changelog presentation deferred until intro cinematic concludes.</li>
-                <li>Refined post-intro state transitions.</li>
-              </ul>
+              <span class="log-version">VERSION 1.0.4</span>
+              <span class="log-date">OCTOBER 2026 // PATCH</span>
             </div>
-            <div class="log-entry">
-              <div class="log-entry-header">
-                <span class="log-version">VERSION 1.0.1</span>
+            <ul class="log-list">
+              <li>Integrated real-time Subtitles toggle with persistent configuration in settings menu.</li>
+              <li>Complete timecoded cinematic subtitles mapping across all Acts, branches, and Endings.</li>
+              <li>Optimized audio graph performance and seamless video transitions.</li>
+            </ul>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-entry-header">
+              <span class="log-version">VERSION 1.0.3</span>
+              <span class="log-date">OCTOBER 2026 // PATCH</span>
+            </div>
+            <ul class="log-list">
+              <li>Integrated Act 3 full cinematic multi-branch sequence matrices.</li>
+              <li>Enabled adaptive mobile landscape orientation locking and full-screen enforcement.</li>
+              <li>Configured native Windows desktop icon matrices (up to 256x256) and taskbar anchors.</li>
+              <li>Refined 27 full psych-matrix profiles based on sequential player inputs.</li>
+            </ul>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-entry-header">
+              <span class="log-version">VERSION 1.0.2</span>
+              <span class="log-date">OCTOBER 2026 // PATCH</span>
+            </div>
+            <ul class="log-list">
+              <li>HUD button anchors locked to fixed screen-bounds (Desktop/Web).</li>
+              <li>Changelog presentation deferred until intro cinematic concludes.</li>
+              <li>Refined post-intro state transitions.</li>
+            </ul>
+          </div>
+
+          <div class="log-entry">
+            <div class="log-entry-header">
+              <span class="log-version">VERSION 1.0.1</span>
               <span class="log-date">OCTOBER 2026 // PATCH</span>
             </div>
             <ul class="log-list">
@@ -193,6 +235,7 @@
               <li>Enhanced the auto-updater handshake protocol.</li>
             </ul>
           </div>
+
           <div class="log-entry">
             <div class="log-entry-header">
               <span class="log-version">VERSION 1.0.0</span>
@@ -214,6 +257,7 @@
       </div>
     </section>
 
+    <!-- Quit confirmation modal -->
     <section id="quit-confirm-modal" class="overlay-layer" aria-label="Confirm Termination">
       <div class="settings-frame quit-dialog-frame">
         <div class="settings-header">
@@ -239,7 +283,7 @@
       </div>
     </section>
 
-    <!-- Credits Screen (Detroit Frosted Glass Style) -->
+    <!-- Credits Screen -->
     <section id="credits-menu" class="overlay-layer" aria-label="Game Credits">
       <div class="credits-frame">
         <div class="credits-header">
@@ -291,7 +335,15 @@
         </div>
       </div>
     </section>
+
+    <!-- شاشة إجبار وتدوير الشاشة للهواتف المحمولة -->
+    <section id="orientation-blocker" class="mobile-rotate-overlay">
+      <div class="rotate-device-icon">⟳</div>
+      <h2>PLEASE ROTATE YOUR DEVICE</h2>
+      <p>Rotate to landscape mode for the best cinematic FMV experience.</p>
+    </section>
   </main>
 
   <script src="script.js"></script>
 </body>
+</html>
